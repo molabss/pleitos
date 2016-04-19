@@ -1,0 +1,445 @@
+<!DOCTYPE HTML>
+<html lang="pt">
+	<title>Cadastro de Centro de Custos</title>
+	<meta charset="utf-8">
+	<head>
+		
+	    <!-- add the jQuery script -->
+	    <script type="text/javascript" src="../lib/jqWidget/scripts/jquery-1.11.1.min.js"></script>	
+	    
+	    <!-- add the jQWidgets framework -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxcore.js"></script>
+	    
+	    <!-- add one or more widgets -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxbuttons.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxmenu.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxinput.js"></script>
+	    
+	    <!-- combobox -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxscrollbar.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxlistbox.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxcombobox.js"></script>
+	    
+	    <!-- textarea -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxtextarea.js"></script>
+	    
+	    <!-- calendar -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxdatetimeinput.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxcalendar.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxtooltip.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/globalization/globalize.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/globalization/globalize.culture.pt-BR.js"></script>
+	    
+	    <!-- campos type number currency -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxnumberinput.js"></script>
+	    
+	    <!-- pop up window -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxwindow.js"></script>
+	    
+	     <!-- notification -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxnotification.js"></script>
+	    
+	    
+	    <!-- radio button -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxradiobutton.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxbuttongroup.js"></script>
+	    
+	     <!-- panel -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxpanel.js"></script>
+	    
+	    
+	    <!-- grid -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxlistbox.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxdropdownlist.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.pager.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.sort.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.filter.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.columnsresize.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.selection.js"></script>	    
+    
+    	<!-- ckeck box -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxcheckbox.js"></script>
+	    
+	    
+	    <!-- export data -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxdata.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxdata.export.js"></script> 
+		<script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.export.js"></script>	
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.storage.js"></script> 
+	    
+	    
+	    
+	    <!-- add the jQWidgets base styles and one of the theme stylesheets -->
+   	    <link rel="stylesheet" href="../lib/jqWidget/jqwidgets/styles/jqx.base.css" type="text/css" />
+	    <link rel="stylesheet" href="../lib/jqWidget/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+	    <link rel="stylesheet" href="../lib/jqWidget/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+	    
+	    <link rel="stylesheet" href="../lib/jqWidget/jqwidgets/styles/jqx.web.css" type="text/css" />
+	    
+	    
+	    <script type="text/javascript" src="../lib/local/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="../lib/local/util.js"></script>
+	   
+	   <script type="text/javascript" src="../lib/local/jquery.mask.min.js"></script>
+	   
+	   <script type="text/javascript" src="js/localization_settings.js"></script>
+	   
+	    <style>
+			
+			html, body{
+				
+				overflow: hidden; 
+				margin: 0;
+				font-family: Verdana,Arial,sans-serif;
+			
+			}
+			
+			fieldset { border:1px solid black }
+
+			legend {
+				  padding: 0.2em 0.5em;
+				  border:1px solid red;
+				  color:red;
+				  font-size:80%;
+				  text-align:center;
+			  }
+			
+			label{
+
+				font-family: Verdana,Arial,sans-serif;
+    			font-style: normal;
+    			font-size: 13px;
+			    display: inline-block;
+			    float: left;
+			    clear: left;
+			    width: 150px;
+			    text-align: left;
+			}
+			input {
+			  display: inline-block;
+			}	    
+	    
+	        .green {
+	            color: black\9;
+	            background-color: #b6ff00\9;
+	        }
+	        .yellow {
+	            color: black\9;
+	            background-color: yellow\9;
+	        }
+	        .red {
+	            color: black\9;
+	            background-color: #e83636\9;
+	        }
+	        .green:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .green:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+	            color: black;
+	            background-color: #b6ff00;
+	        }
+	        .yellow:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .yellow:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+	            color: black;
+	            background-color: yellow;
+	        }
+	        .red:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .red:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+	            color: white;
+	            background-color: #e83636;
+	        }	    
+	    
+	    
+		    .footer {
+		    	width:100%;
+		    	position:absolute;
+		    	bottom:0;
+			    background: #111;
+			    color: #888;
+			    text-align: center;
+			    font-family: sans-serif
+			}
+		    .footer a {
+		        color: #ddd;
+		    }
+		    
+		    .l-box {
+    			padding: 0.5em 2em;
+			}
+	    
+	    </style>
+	    <script>
+	    	$(document).ready(function(){
+	    		
+	    		listarDiretores();
+	    		
+	    		$("#jqxMenu").jqxMenu({ width: '100%', height: '30px',theme: 'shinyblack' });
+	    		$("#id").jqxInput({height: 25, width: 200, minLength: 1, maxLength: 10,});
+	    		$("#descricao").jqxInput({height: 25, width: 200, minLength: 1,maxLength: 50});
+	    		$("#porcentagemParticipa").jqxNumberInput({width: '207px', height: '25px'});
+            	$("#salvaCC").jqxButton({width:70,height:30});
+            	$("#cancelaSalvaCC").jqxButton({width:70,height:30});
+            	$("#diretor").jqxComboBox({selectedIndex: 0, width: 207, height: '25px'});
+	    		
+            	resetForm("#form1");
+            	
+            	$("#content").show();
+            	
+				function listarDiretores(){
+					
+					ajxRequestStd({returnType:"json", async:false, timeout:10000, method:"GET", url:"../ws/restrito/cc/listarDiretores"}, 
+						function(response){
+
+						var html = "";
+							for(var i = 0; i < response.length; i++){
+								
+								html+='<option value="'+response[i].login+'">'+response[i].nome+'</option>';
+								
+								console.log('<option value="'+response[i].login+'">'+response[i].nome+'</option>');
+							}
+							$("#diretor").html(html);
+						}
+					);
+				}
+	    		
+	    		
+                var source =
+                {
+                    datatype: "json",
+                    url:"../ws/restrito/cc/listarCC",
+                    
+                    datafields: [
+                        
+                        { name: 'id', type:'string'},         
+                        { name: 'descricao', type:'string'},
+                        { name: 'porcentagemParticipa', type:'number'},
+                        { name: 'diretor', type:'string'},
+                        { name: '_loginDiretor', type:'string'}
+                    ]
+                };
+            	
+                
+                var dataAdapter = new $.jqx.dataAdapter(source,{
+                	downloadComplete: function (data, status, xhr) { },
+                	loadComplete: function (data) { },
+                	loadError: function (xhr, status, error) { }
+                });                
+                
+                $("#jqxgrid").jqxGrid(
+                        {
+                        	localization:localizationobj,
+                        	width: '100%',
+                            height: 200,
+                            source: dataAdapter,
+                            columnsresize: true,
+                            sortable: true,
+                            filterable: true,
+                            pageable: true,
+                            pagermode: 'simple',
+                            pagesize: 5,
+                            theme: 'web',
+                            autoshowfiltericon: true,
+                            //showfilterrow: true,
+                            
+                            columns: [
+       	                              
+        	                        {text: '', datafield: 'Editar', columntype: 'button', cellsrenderer: function () {
+        	                        	
+        	                        	return 'Editar';
+        	                        },
+        	                        buttonclick: function (row) {
+       		
+        	                        	//resetForm("#form1");
+        	                        	
+        		                        // get the clicked row's data and initialize the input fields.
+        		                        var dataRecord = $("#jqxgrid").jqxGrid('getrowdata', row);        	                        	
+        	                        	
+        		                        
+        		                        $("#_id_cc").val(dataRecord.id);
+        		                        $("#id").val(dataRecord.id);
+        		                        $("#descricao").val(dataRecord.descricao);
+        		                        //$("#porcentagemParticipa").val(dataRecord.porcentagemParticipa);
+        		                        $("#porcentagemParticipa").jqxNumberInput('val', dataRecord.porcentagemParticipa);
+        		                        
+        		                        
+        		                        //$("#diretor").jqxComboBox('selectItem',dataRecord._loginDiretor);
+        		                        
+        		                        $("#diretor").jqxComboBox('selectItem',dataRecord._loginDiretor);
+        		                        
+        		                        
+        		                        //$("#diretor").jqxComboBox('val',dataRecord.diretor);
+
+        	                   		}
+        	                   	}, 
+        	                   	
+        	                    { text: '', datafield: 'Excluir', columntype: 'button',cellsrenderer: function () {
+        							return "Excluir";
+        						},
+        							buttonclick: function (row) {
+ 
+        								alert("Função não disponível.");
+        								
+        								//excluir(dataRecord.id);
+        							}
+        						},                    	
+        	                  	    
+        	               		//demais colunas da grid
+        	                    { text: 'Centro de custo', datafield: 'id', width: 100,filtertype: 'checkedlist', cellsalign: 'center'},
+        	                    { text: 'Descrição', datafield: 'descricao',width: 400,filtertype: 'input',},
+        	                    { text: 'Participação (%)', datafield: 'porcentagemParticipa',width: 120,filtertype: 'number',cellsalign: 'right'},
+        	                    { text: 'Diretor', datafield: 'diretor',width: 250, filtertype: 'checkedlist', cellsalign: 'center'},
+        	                    { text: '_loginDiretor', datafield: '_loginDiretor',width: 250, hidden:true}
+                            ]    
+                        });                
+            	
+            	
+				function getAllVals(){
+
+					var params = {
+							
+						_id_cc : $("#_id_cc").val(),
+						id : $("#id").val(),	
+						descricao : $("#descricao").val(),
+						porcentagemParticipa : $("#porcentagemParticipa").val(),
+						_loginDiretor : $("#diretor").jqxComboBox('val')
+					}
+					
+					
+					console.log(jQuery.param(params));
+					
+					return jQuery.param(params);
+				}
+                
+                $('#jqxgrid').on('bindingcomplete',addImageButton);
+                $('#jqxgrid').on('filter',addImageButton);
+                $("#jqxgrid").on("columnresized", addImageButton); 
+                $("#jqxgrid").on("columnreordered",addImageButton); 
+                $("#jqxgrid").on("sort",addImageButton);
+                $("#jqxgrid").on("pagechanged", addImageButton);
+                
+                
+                function addImageButton(){
+                	
+                	
+    	            $(":input[type='button']").each(function(i,obj){
+    	            	
+    	            	if($(obj).context.value == "Editar" || $(obj).context.value == "Excluir"){
+    	            		
+    	            		$(obj).context.type = "image";
+    	            		
+    	            		if($(obj).context.value == "Editar"){
+    	            			
+    	            			$(obj).context.src = "img/edit.png";
+    	            		}
+    	            		else if($(obj).context.value == "Excluir"){
+    	            			
+    	            			$(obj).context.src = "img/delete.png";
+    	            		}
+    	            	}
+    	            });
+                }
+                
+                
+            	$("#salvaCC").on('click', function () {
+            		
+					ajxRequestStd({returnType:"json", async:true, timeout:10000, method:"POST",url:"../ws/restrito/cc/salvar", param : getAllVals()}, 
+
+						function(response){
+							
+							resetForm($("#form1"));
+							
+							$('#jqxgrid').jqxGrid('updatebounddata');
+							
+							alert(response.serverMessageUser);
+							
+						}
+					);
+            		
+                });
+            	
+            	$("#cancelaSalvaCC").on('click', function () {
+            		
+					resetForm("#form1");
+ 
+            	});
+            	
+            	
+                function resetForm(form){
+                	$(form)[0].reset();
+					$("#_id_cc").val(-1);
+					$("#diretor").jqxComboBox('clearSelection');
+                }
+                
+	    	});
+	    	
+
+	    	
+	    </script>
+	</head>
+	<body>
+		<div style="width: 100%">
+			<img src="../img/constran_logo.png">
+		</div>
+	    <div id="content" style="display:none;">
+	        <div id="jqxMenu">
+				<ul>
+	                <li><a href="#" onclick="window.history.back();">Voltar</a></li>
+	                <li><a href="#" onclick="logoff();">Sair</a></li>
+	            </ul>
+	        </div>	    
+	    
+	    	<br/>
+    		<form id="form1">
+    		
+    		 <input type="hidden" id="_id_cc" value="-1">
+    		
+			 <fieldset>
+			  <legend>Cadastro de Centros de Custo</legend>
+				<label>Centro de custo</label>
+				<input type="text" id="id">
+				<br/>
+				
+				<label>Descrição</label>
+				<input type="text" id="descricao">
+				<br/>
+				
+				
+				<label>Participação (%)</label>
+				<div id="porcentagemParticipa"></div>
+
+
+				<label>Diretor</label>
+				<select name="" id="diretor">
+				</select>
+				<br/>
+
+
+                  <input style="margin-right: 5px;" type="button" id="salvaCC" value="Salvar"/>
+                  <input id="cancelaSalvaCC" type="button" value="Cancelar" />
+			 </fieldset>
+			</form>
+			
+			<br/>
+		    <div id='jqxWidget'>
+		        <div id="jqxgrid"></div>
+		    </div>
+	    
+	    </div>		
+	    <script>
+			function logoff(){
+				if(confirm("Você será desconectado...")){  
+					ajxRequestStd({returnType:"json", async:false, timeout:10000, method:"GET", url:"../ws/restrito/login/logoff"}, 
+						function(response){
+							window.location.href = response.serverMessageUser
+						}
+					);
+				}
+			}			
+	    </script>
+	    
+	    <div id="erroMsg"></div>
+	    		
+		<div class="footer">
+		    <p>
+		        © Todos os direitos reservados à <a href="http://www.constran.com.br">Constran</a>. Departamento de Tecnologia da Informação <a href='mailto:ti.matriz@constran.com.br'>ti.matriz@constran.com.br</a>. Versão 1.0.0
+		    </p>
+		</div>
+				
+	</body>
+</html>

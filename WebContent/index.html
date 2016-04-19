@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="A layout example that shows off a responsive pricing table.">
+		<title>Planejamento - Pleitos</title>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+		<link rel="stylesheet" href="css/layouts/pricing.css">
+		<script type="text/javascript" src="lib/jqWidget/scripts/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="lib/local/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="lib/local/util.js"></script>
+		<script>
+			$(document).ready(function(){
+
+				$("#btnLogin").click(function(){
+					processaLogin();
+				});
+			});
+			
+	    	$(document).keydown(function (e){
+	    	    if(e.keyCode == 13){
+	    	    	processaLogin();
+	    	    }
+	    	});
+	    	
+	    	function processaLogin(){
+				ajxRequestStd({returnType:"json", async:true, timeout:10000, method:"POST",url:"ws/restrito/login/autenticar",param:$("form").serialize()},
+ 					   function (response){
+						console.log("response: "+response);
+						window.location.href = response.redirectTo;
+					}
+				);
+	    	}
+ 		</script>
+ 		<style>
+ 		
+ 			html, body{
+				
+				overflow: hidden; 
+				margin: 0;
+			
+			}
+ 		
+ 		   .footer {
+		    	width:100%;
+		    	position:absolute;
+		    	bottom:0;
+			    background: #111;
+			    color: #888;
+			    text-align: center;
+			    font-family: sans-serif
+			}
+		    .footer a {
+		        color: #ddd;
+		    }
+		    
+		    .l-box {
+    			padding: 0.5em 2em;
+			}
+ 		
+ 		</style>	
+	</head>
+	<body>
+		<div class="pure-menu pure-menu-horizontal">
+		    <a href="#" class="pure-menu-heading"><img src="img/constran_logo.png"></a>
+		</div>
+		<div class="banner">
+		    <h1 class="banner-head">Departamento de Planejamento<br> - Gestão de Pleitos - </h1>
+		</div>
+			<div class="l-content">
+				<div style="text-align:center;">
+					<form class="pure-form">
+						<fieldset>
+							<input type="email" placeholder="Usuário" id="login" name="login">
+							<input type="password" placeholder="Senha" id="senha" name="senha">
+							<button type="button" class="pure-button pure-button-primary" id="btnLogin">Entrar</button>
+						</fieldset>
+					</form>
+				 </div> 
+		    </div> 
+			<div class="footer">
+			    <p>
+			        © Todos os direitos reservados à <a href="http://www.constran.com.br">Constran</a>. Departamento de Tecnologia da Informação <a href='mailto:ti.matriz@constran.com.br'>ti.matriz@constran.com.br</a>. Versão 1.0.0
+			    </p>
+			</div>
+			<div id="erroMsg"></div>
+	</body>
+</html>

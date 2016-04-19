@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="modeloRelatorio" pageWidth="1190" pageHeight="842" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="1150" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" uuid="8ae53856-eb28-4a2d-bb62-bf37d505df4d">
+	<property name="ireport.zoom" value="0.5634861006761843"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="IMAGE_DIR" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
+	<parameter name="ccObra" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<group name="SAEs e PAEs - Negociação" isStartNewPage="true">
+		<groupExpression><![CDATA[$P{ccObra}]]></groupExpression>
+		<groupHeader>
+			<band height="54">
+				<subreport>
+					<reportElement x="6" y="2" width="1141" height="50" isRemoveLineWhenBlank="true" uuid="571d5cfc-4c17-419b-98f1-a623fb4264a2"/>
+					<subreportParameter name="SUBREPORT_DIR"/>
+					<subreportParameter name="ccObra">
+						<subreportParameterExpression><![CDATA[$P{ccObra}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subRep_saespaes_negociacao.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+	</group>
+	<group name=" Pleito - Negociação" isStartNewPage="true">
+		<groupExpression><![CDATA[$P{ccObra}]]></groupExpression>
+		<groupHeader>
+			<band height="55">
+				<subreport>
+					<reportElement x="6" y="2" width="1141" height="50" isRemoveLineWhenBlank="true" uuid="4c342ceb-a67c-438b-b146-e96e4c2d86dc"/>
+					<subreportParameter name="SUBREPORT_DIR"/>
+					<subreportParameter name="ccObra">
+						<subreportParameterExpression><![CDATA[$P{ccObra}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subRep_pleito_negociacao.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="SAEs e PAEs - Em Preparação" isStartNewPage="true">
+		<groupExpression><![CDATA[$P{ccObra}]]></groupExpression>
+		<groupHeader>
+			<band height="57">
+				<subreport>
+					<reportElement x="6" y="3" width="1141" height="50" isRemoveLineWhenBlank="true" uuid="2e8bf9b9-02c3-4a17-a63f-22465b5c596d"/>
+					<subreportParameter name="SUBREPORT_DIR"/>
+					<subreportParameter name="ccObra">
+						<subreportParameterExpression><![CDATA[$P{ccObra}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subRep_saespaes_preparacao.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Pleito - Em Preparação" isStartNewPage="true">
+		<groupExpression><![CDATA[$P{ccObra}]]></groupExpression>
+		<groupHeader>
+			<band height="59">
+				<subreport>
+					<reportElement x="5" y="5" width="1142" height="50" isRemoveLineWhenBlank="true" uuid="ffb91d44-9897-45d8-86c0-69ea8d05e84c"/>
+					<subreportParameter name="SUBREPORT_DIR"/>
+					<subreportParameter name="ccObra">
+						<subreportParameterExpression><![CDATA[$P{ccObra}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subRep_pleito_preparacao.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="SAEs e PAEs - Aprovado" isStartNewPage="true">
+		<groupExpression><![CDATA[$P{ccObra}]]></groupExpression>
+		<groupHeader>
+			<band height="58">
+				<subreport>
+					<reportElement x="6" y="4" width="1141" height="50" isRemoveLineWhenBlank="true" uuid="d7ac34e8-2f2e-45db-a4dc-c08fb6c892a9"/>
+					<subreportParameter name="SUBREPORT_DIR"/>
+					<subreportParameter name="ccObra">
+						<subreportParameterExpression><![CDATA[$P{ccObra}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subRep_saespaes_aprovado.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Pleito - Aprovado" isStartNewPage="true">
+		<groupExpression><![CDATA[$P{ccObra}]]></groupExpression>
+		<groupHeader>
+			<band height="56">
+				<subreport>
+					<reportElement x="6" y="3" width="1141" height="50" isRemoveLineWhenBlank="true" uuid="9762dd7a-5103-4e54-80f2-4498b782250e"/>
+					<subreportParameter name="SUBREPORT_DIR"/>
+					<subreportParameter name="ccObra">
+						<subreportParameterExpression><![CDATA[$P{ccObra}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subRep_pleito_aprovado.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="SAEs e PAEs - Cancelado" isStartNewPage="true">
+		<groupExpression><![CDATA[$P{ccObra}]]></groupExpression>
+		<groupHeader>
+			<band height="58">
+				<subreport>
+					<reportElement x="6" y="4" width="1141" height="50" isRemoveLineWhenBlank="true" uuid="f8e87458-2c2a-4906-a890-6a4930bfcb55"/>
+					<subreportParameter name="SUBREPORT_DIR"/>
+					<subreportParameter name="ccObra">
+						<subreportParameterExpression><![CDATA[$P{ccObra}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subRep_saespaes_cancelado.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Pleito - Cancelado" isStartNewPage="true">
+		<groupExpression><![CDATA[$P{ccObra}]]></groupExpression>
+		<groupHeader>
+			<band height="59">
+				<subreport>
+					<reportElement x="6" y="4" width="1141" height="50" isRemoveLineWhenBlank="true" uuid="c07109ab-782a-4035-b7f0-054711816fdd"/>
+					<subreportParameter name="SUBREPORT_DIR"/>
+					<subreportParameter name="ccObra">
+						<subreportParameterExpression><![CDATA[$P{ccObra}]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subRep_pleito_cancelado.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupHeader>
+	</group>
+	<pageHeader>
+		<band height="67" splitType="Stretch">
+			<subreport>
+				<reportElement mode="Opaque" x="6" y="3" width="1141" height="60" forecolor="#99FF66" uuid="09234792-562c-4cf4-b8dc-ad73b9294953"/>
+				<subreportParameter name="ccObra">
+					<subreportParameterExpression><![CDATA[$P{ccObra}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="IMAGE_DIR">
+					<subreportParameterExpression><![CDATA[$P{IMAGE_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "pageHeaderPortraitLogoObra.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement mode="Opaque" x="1062" y="47" width="38" height="15" forecolor="#FFFFFF" backcolor="#999999" uuid="2330a109-1264-4349-8788-59c813bd8e8f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Página ]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="1130" y="47" width="15" height="15" forecolor="#FFFFFF" backcolor="#999999" uuid="c1ec5893-e824-4056-a2e9-2a0400a41425"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="1117" y="47" width="12" height="15" forecolor="#FFFFFF" backcolor="#999999" uuid="6730e3d2-3a1c-4505-a366-936029f0c435"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[de]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="1101" y="47" width="15" height="15" forecolor="#FFFFFF" backcolor="#999999" uuid="75656629-e1ef-44cb-9c9c-455899cc6487"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="58"/>
+	</detail>
+</jasperReport>

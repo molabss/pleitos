@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="modeloRelatorio" pageWidth="1190" pageHeight="842" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="1190" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" uuid="8ae53856-eb28-4a2d-bb62-bf37d505df4d">
+	<property name="ireport.zoom" value="3.305785123966963"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="97"/>
+	<parameter name="IMAGE_DIR" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
+	<parameter name="ccObra" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT id_pleito
+,cc.id_cc as cc
+,cc.descricao as cc_desc
+,cc.porcentagemParticipa as cc_participa
+,us.nome as diretor
+,t.ds_tipo as tipo
+,s.descricao as statuss
+,c.descricao as condicao
+,numDocumento
+,p.descricao as pleitoDescricao
+,dtEntrega
+,colcadoEmP0
+,reajustadoAteAData
+,esperadoEmP0_A
+,esperadoEmP0_B
+,custoAgregadoNoMinimoEsperadoP0
+,livreDeCustosNoMinimoEsperadoP0
+,minimoEsperadoReajustado
+,custoAgregadoNoMinimoEsperadoReajustado
+,livreDeCustosNoMinimoEsperadoReajustado
+,dtPrevFinalizaAprovacaoCancelada
+,jaRecebidoAteDataP0
+,saldoAreceberP0
+,jaRecebidoAteDTreajus
+,saldoAreceberReajustado
+,dtPrevRecebimento
+,inclusoAPS
+,obs
+,nuAdidito_parteDaVerba
+,excluido
+,excluidoPor
+,excluidoEm
+FROM [PLEITOS] p
+inner join tipos t
+on p.fk_id_tipo = t.id_tipo
+inner join status s
+on p.fk_id_status = s.id_status
+inner join condicoes c
+on p.fk_id_condicao = c.id_condicao
+inner join  centros_de_custos cc
+on p.fk_id_cc = cc.id_cc
+left join  usuarios us
+on cc.fk_id_login_diretor = us.login
+where p.fk_id_cc = $P{ccObra} and p.fk_id_tipo = 1 and p.fk_id_status = 1
+order by p.fk_id_tipo]]>
+	</queryString>
+	<field name="id_pleito" class="java.lang.Integer"/>
+	<field name="cc" class="java.lang.String"/>
+	<field name="cc_desc" class="java.lang.String"/>
+	<field name="cc_participa" class="java.math.BigDecimal"/>
+	<field name="diretor" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="statuss" class="java.lang.String"/>
+	<field name="condicao" class="java.lang.String"/>
+	<field name="numDocumento" class="java.lang.String"/>
+	<field name="pleitoDescricao" class="java.lang.String"/>
+	<field name="dtEntrega" class="java.sql.Timestamp"/>
+	<field name="colcadoEmP0" class="java.math.BigDecimal"/>
+	<field name="reajustadoAteAData" class="java.math.BigDecimal"/>
+	<field name="esperadoEmP0_A" class="java.math.BigDecimal"/>
+	<field name="esperadoEmP0_B" class="java.math.BigDecimal"/>
+	<field name="custoAgregadoNoMinimoEsperadoP0" class="java.math.BigDecimal"/>
+	<field name="livreDeCustosNoMinimoEsperadoP0" class="java.math.BigDecimal"/>
+	<field name="minimoEsperadoReajustado" class="java.math.BigDecimal"/>
+	<field name="custoAgregadoNoMinimoEsperadoReajustado" class="java.math.BigDecimal"/>
+	<field name="livreDeCustosNoMinimoEsperadoReajustado" class="java.math.BigDecimal"/>
+	<field name="dtPrevFinalizaAprovacaoCancelada" class="java.sql.Timestamp"/>
+	<field name="jaRecebidoAteDataP0" class="java.math.BigDecimal"/>
+	<field name="saldoAreceberP0" class="java.math.BigDecimal"/>
+	<field name="jaRecebidoAteDTreajus" class="java.math.BigDecimal"/>
+	<field name="saldoAreceberReajustado" class="java.math.BigDecimal"/>
+	<field name="dtPrevRecebimento" class="java.sql.Timestamp"/>
+	<field name="inclusoAPS" class="java.lang.String"/>
+	<field name="obs" class="java.lang.String"/>
+	<field name="nuAdidito_parteDaVerba" class="java.lang.String"/>
+	<field name="excluido" class="java.lang.String"/>
+	<field name="excluidoPor" class="java.lang.String"/>
+	<field name="excluidoEm" class="java.sql.Timestamp"/>
+	<variable name="soma_colcadoEmP0" class="java.math.BigDecimal" resetType="Group" incrementType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{colcadoEmP0}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="soma_reajustadoAteAData" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{reajustadoAteAData}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<pageHeader>
+		<band height="59">
+			<rectangle>
+				<reportElement x="1" y="27" width="1175" height="32" forecolor="#FFFFFF" backcolor="#6699FF" uuid="e2e6b048-dc1b-474b-9e4c-27fd948dd9da"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="1" y="3" width="1175" height="22" forecolor="#FFFFFF" backcolor="#6699FF" uuid="9282d26d-ef52-443f-87a5-cd66d5926396"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="4" width="1173" height="20" uuid="3ee0950b-3d49-4b6d-a72d-b4c7a8e58082"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[SAEs e PAEs - Em Negociação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="28" width="65" height="30" forecolor="#000000" uuid="64522255-26dd-44e0-8ca5-7b7c4356a3d4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[ N Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="68" y="28" width="121" height="30" uuid="11bc7b32-218d-47e5-964e-9236791fdd0b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[ Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="190" y="28" width="31" height="30" uuid="0064b7f7-ee41-4be6-8bb8-ae4ecdfcb583"/>
+				<textElement verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Data Entrega]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="222" y="28" width="38" height="30" uuid="2b4dacee-5a1b-4fb4-8318-504eab7f6e6a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Colocado em P0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="261" y="28" width="39" height="30" uuid="6d101fc2-3e73-4a3e-b765-e555e0bbdc6a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Reaju. até a Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="340" y="37" width="48" height="21" uuid="97c41a1c-283b-436d-bf20-729ffcf6d234"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Valor esperado em P0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="301" y="28" width="38" height="30" uuid="4146cc85-0933-4288-a216-4929422dafca"/>
+				<textElement verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Esperado em P0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="389" y="37" width="48" height="21" uuid="414e2a40-9ed1-4924-8c29-a413db0fb3ad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Custo Agregado no  Mínimo Esperado P0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="438" y="37" width="48" height="21" uuid="431431bb-2ef8-4603-99f4-ed4629a84823"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Livre de Custos no Mínimo Esperado P0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="487" y="37" width="34" height="21" uuid="daf1a085-dfd3-4d61-86b5-42cb84fda909"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Mínimo Esperado Reajustado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="522" y="37" width="44" height="21" uuid="d0c267ec-6959-4306-be05-7fb75d346f9d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Custo Agregado no Mínimo Esperado Reajustado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="567" y="37" width="44" height="21" uuid="7ab4cd57-b1d4-4fb7-910c-2185d5de8b9c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Livre de Custos no Mínimo Esperado Reajustado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="612" y="28" width="51" height="30" uuid="a42b153f-5a16-4852-b870-936397ca81ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Data: Prevista para Finalizar Negociação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="664" y="28" width="511" height="30" backcolor="#FFFFFF" uuid="07f7454c-b5c8-453f-b65f-c4665b484a2c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<text><![CDATA[Observações]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="340" y="28" width="146" height="8" forecolor="#000000" backcolor="#CCCC00" uuid="9a21cf3c-0057-4721-9a25-48be48218c1b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mínimo Esperado P0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="487" y="28" width="124" height="8" forecolor="#000000" backcolor="#CCCC00" uuid="33e0f1af-ca87-4cf5-89b5-87cb5277c390"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mínimo Esperado Reajustado]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="13">
+			<rectangle>
+				<reportElement x="1" y="0" width="1175" height="13" forecolor="#FFFFFF" backcolor="#6699FF" uuid="b6bce91c-990b-437b-aa3a-209ab420c42f"/>
+			</rectangle>
+			<textField>
+				<reportElement mode="Opaque" x="2" y="1" width="65" height="11" backcolor="#FFFFFF" uuid="5358c913-f197-475c-a7e9-7ea80ebbe232"/>
+				<textElement verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="68" y="1" width="121" height="11" backcolor="#FFFFFF" uuid="d2aa4d35-87a0-44b4-bd23-60608e26e7b6"/>
+				<textElement verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pleitoDescricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="190" y="1" width="31" height="11" backcolor="#FFFFFF" uuid="8da9ee8b-d9c8-47e9-821c-1764588beaf3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dtEntrega}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="222" y="1" width="38" height="11" backcolor="#FFFFFF" uuid="a9f97fc8-441e-4a32-90ea-c078fb88817e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{colcadoEmP0}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="340" y="1" width="48" height="11" backcolor="#FFFFFF" uuid="ffac13c0-3b3e-4f0e-ae50-2f555d1a2f9b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{esperadoEmP0_A}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="261" y="1" width="39" height="11" backcolor="#FFFFFF" uuid="c4dfd34d-20de-4801-9688-14dbc877a1bf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reajustadoAteAData}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="301" y="1" width="38" height="11" backcolor="#FFFFFF" uuid="7a85625e-1d6e-433b-819f-74b93af752bb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{esperadoEmP0_B}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="389" y="1" width="48" height="11" backcolor="#FFFFFF" uuid="ee5d68ea-e8c4-4fb9-b3f4-fc625f08f5d9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{custoAgregadoNoMinimoEsperadoP0}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="438" y="1" width="48" height="11" backcolor="#FFFFFF" uuid="b0b01f26-c1e0-43c5-8e5d-71a3184389de"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{livreDeCustosNoMinimoEsperadoP0}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="487" y="1" width="34" height="11" backcolor="#FFFFFF" uuid="a2031bc1-310b-4169-b63f-6d1c2a16d266"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{minimoEsperadoReajustado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="522" y="1" width="44" height="11" backcolor="#FFFFFF" uuid="494dc1af-e777-456d-9fa9-43587c402743"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{custoAgregadoNoMinimoEsperadoReajustado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="567" y="1" width="44" height="11" backcolor="#FFFFFF" uuid="0935ce4c-86ea-42b1-a573-8f3663dbaa3d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{livreDeCustosNoMinimoEsperadoReajustado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="612" y="1" width="51" height="11" backcolor="#FFFFFF" uuid="b6adf3f8-9f28-4d31-9822-a54d73918d22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dtPrevFinalizaAprovacaoCancelada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="664" y="1" width="511" height="11" backcolor="#FFFFFF" uuid="8cf01697-250e-41da-8456-7c0eaf7cce20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{obs}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="13">
+			<rectangle>
+				<reportElement x="1" y="0" width="1174" height="13" forecolor="#FFFFFF" backcolor="#3399FF" uuid="f0327ff7-48fa-4254-9592-c61316951e51"/>
+			</rectangle>
+			<textField>
+				<reportElement mode="Opaque" x="261" y="1" width="39" height="11" backcolor="#FFFFFF" uuid="4835288e-97d3-4228-ad59-ce8e1144b871"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[V{soma_reajustadoAteAData}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="1" width="219" height="11" uuid="7f030337-46c7-481a-abd5-c4028be2dfdc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="5" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField pattern="###0.00;-###0.00">
+				<reportElement mode="Opaque" x="222" y="1" width="38" height="11" uuid="2d309ecf-985a-4c8b-940f-b36c51de429e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{soma_colcadoEmP0}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

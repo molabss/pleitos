@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pageHeaderPortrait" pageWidth="1190" pageHeight="842" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="1141" leftMargin="0" rightMargin="49" topMargin="0" bottomMargin="0" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" uuid="8ae53856-eb28-4a2d-bb62-bf37d505df4d">
+	<property name="ireport.zoom" value="2.196150000000003"/>
+	<property name="ireport.x" value="1957"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="IMAGE_DIR" class="java.lang.String"/>
+	<parameter name="titulo" class="java.lang.String"/>
+	<parameter name="subTitulo" class="java.lang.String"/>
+	<parameter name="ccObra" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT id_cc
+      ,descricao
+      ,porcentagemParticipa
+      ,us.nome as diretor
+  FROM CENTROS_DE_CUSTOS cc
+inner join usuarios us
+on cc.fk_id_login_diretor = us.login
+where id_cc = $P{ccObra}]]>
+	</queryString>
+	<field name="id_cc" class="java.lang.String"/>
+	<field name="descricao" class="java.lang.String"/>
+	<field name="porcentagemParticipa" class="java.math.BigDecimal"/>
+	<field name="diretor" class="java.lang.String"/>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<rectangle>
+				<reportElement x="2" y="27" width="1138" height="33" backcolor="#3333FF" uuid="3a6d4fd4-89b0-41c9-bfd4-9ddc4d8d6b99"/>
+				<graphicElement>
+					<pen lineColor="#FFFFFF"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement x="415" y="27" width="725" height="31" forecolor="#FFFFFF" uuid="d9c9f39d-3585-4a61-8fc6-393d95edca0f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE, dd MMMMM yyyy">
+				<reportElement x="1016" y="2" width="123" height="12" uuid="ccb52cb5-4149-4b31-aa7a-241911345560"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RealSize">
+				<reportElement x="0" y="2" width="111" height="25" uuid="a10c0271-a84e-4305-9990-cd4da8473ca3"/>
+				<imageExpression><![CDATA[$P{IMAGE_DIR}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="113" y="15" width="176" height="12" uuid="cf1b5a50-27c8-4a23-a058-c391ca472ffe"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Constran S/A - Tecnologia da  Informação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="113" y="1" width="166" height="14" uuid="16f372fd-1a60-46d9-bd7d-278316c8bd9c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Gestão de Pleitos - Planejamento]]></text>
+			</staticText>
+			<textField pattern="HH:mm:ss">
+				<reportElement x="1016" y="14" width="123" height="12" uuid="cccd7b7b-c871-47bd-aeb6-00d19c07cb50"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="292" y="28" width="121" height="30" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="2f30f124-e131-4548-ada9-c1f8e04a89b3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_cc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>

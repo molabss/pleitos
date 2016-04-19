@@ -1,0 +1,820 @@
+<!DOCTYPE HTML>
+<html lang="pt">
+	<meta charset="utf-8">
+	<head>
+	    <!-- add the jQuery script -->
+	    <script type="text/javascript" src="../lib/jqWidget/scripts/jquery-1.11.1.min.js"></script>	
+	    
+	    <!-- add the jQWidgets framework -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxcore.js"></script>
+	    
+	    <!-- add one or more widgets -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxbuttons.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxmenu.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxinput.js"></script>
+	    
+	    <!-- combobox -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxscrollbar.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxlistbox.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxcombobox.js"></script>
+	    
+	    <!-- textarea -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxtextarea.js"></script>
+	    
+	    <!-- calendar -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxdatetimeinput.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxcalendar.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxtooltip.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/globalization/globalize.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/globalization/globalize.culture.pt-BR.js"></script>
+	    
+	    <!-- campos type number currency -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxnumberinput.js"></script>
+	    
+	    <!-- pop up window -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxwindow.js"></script>
+	    
+	     <!-- notification -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxnotification.js"></script>
+	    
+	    
+	    <!-- radio button -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxradiobutton.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxbuttongroup.js"></script>
+	    
+	     <!-- panel -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxpanel.js"></script>
+	    
+	    
+	    <!-- grid -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxlistbox.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxdropdownlist.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.pager.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.sort.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.filter.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.columnsresize.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.selection.js"></script>	    
+    
+    	<!-- ckeck box -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxcheckbox.js"></script>
+	    
+	    
+	    <!-- export data -->
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxdata.js"></script>
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxdata.export.js"></script> 
+		<script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.export.js"></script>	
+	    <script type="text/javascript" src="../lib/jqWidget/jqwidgets/jqxgrid.storage.js"></script> 
+	    
+	    
+	    
+	    <!-- add the jQWidgets base styles and one of the theme stylesheets -->
+   	    <link rel="stylesheet" href="../lib/jqWidget/jqwidgets/styles/jqx.base.css" type="text/css" />
+	    <link rel="stylesheet" href="../lib/jqWidget/jqwidgets/styles/jqx.shinyblack.css" type="text/css" />
+	    <link rel="stylesheet" href="../lib/jqWidget/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+	    
+	    <link rel="stylesheet" href="../lib/jqWidget/jqwidgets/styles/jqx.web.css" type="text/css" />
+	    
+	    
+	    <script type="text/javascript" src="../lib/local/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="../lib/local/util.js"></script>
+	   
+	   <script type="text/javascript" src="../lib/local/jquery.mask.min.js"></script>
+	   
+	   <script type="text/javascript" src="js/localization_settings.js"></script>
+	   
+	   
+	    <style>
+			
+			html, body{
+				
+				overflow: hidden; 
+				margin: 0;
+			
+			}
+			
+			label{
+
+				font-family: Verdana,Arial,sans-serif;
+    			font-style: normal;
+    			font-size: 13px;
+			    display: inline-block;
+			    float: left;
+			    clear: left;
+			    width: 150px;
+			    text-align: left;
+			}
+			input {
+			  display: inline-block;
+			}	    
+	    
+	        .green {
+	            color: black\9;
+	            background-color: #b6ff00\9;
+	        }
+	        .yellow {
+	            color: black\9;
+	            background-color: yellow\9;
+	        }
+	        .red {
+	            color: black\9;
+	            background-color: #e83636\9;
+	        }
+	        .green:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .green:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+	            color: black;
+	            background-color: #b6ff00;
+	        }
+	        .yellow:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .yellow:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+	            color: black;
+	            background-color: yellow;
+	        }
+	        .red:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .red:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+	            color: white;
+	            background-color: #e83636;
+	        }	    
+	    
+	    
+		    .footer {
+		    	width:100%;
+		    	position:absolute;
+		    	bottom:0;
+			    background: #111;
+			    color: #888;
+			    text-align: center;
+			    font-family: sans-serif
+			}
+		    .footer a {
+		        color: #ddd;
+		    }
+		    
+		    .l-box {
+    			padding: 0.5em 2em;
+			}
+	    
+	    </style>
+	    
+	    
+        <script type="text/javascript">
+            $(document).ready(function () {
+            	
+            	carregarMenuTopo();
+            	
+            	listarCC();
+            	listarTipo();
+            	listarStatus();
+            	listarCondicao();
+            	
+            	$("#_cc").jqxComboBox({selectedIndex: 0, width: 200, height: '25px'});
+                $("#_tipo").jqxComboBox({selectedIndex: 0, width: 200, height: '25px'});
+                $("#_status").jqxComboBox({selectedIndex: 0, width: 200, height: '25px'});
+                $("#_condicao").jqxComboBox({selectedIndex: 0, width: 200, height: '25px'});
+                $("#numDocumento").jqxInput({height: 25, width: 200, minLength: 1, maxLength: 80});
+                $('#descricao').jqxTextArea({height: 90, width: 200, minLength: 1, maxLength: 100});
+                
+                $("#colocadoEmP0").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                
+                $("#reajustadoAteAdata").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $("#esperadoEmP0_A").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $("#esperadoEmP0_B").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $("#custoAgregadoNoMinimoEsperadoP0").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $("#livreDeCustosNoMinimoEsperadoP0").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $("#minimoEsperadoReajustado").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $("#custoAgregadoNoMinimoEsperadoReajustado").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $("#livreDeCustosNoMinimoEsperadoReajustado").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $("#dataEntrega").jqxDateTimeInput({width: '200px', height: '25px',culture: 'pt-BR',formatString: "dd/MM/yyyy"});
+                $("#dtPrevFinalizaAprovacaoCancelada").jqxDateTimeInput({culture:'pt-BR',width: '200px', height: '25px',formatString: "dd/MM/yyyy"});
+                $("#dtPrevRecebimento").jqxDateTimeInput({width: '200px', height:'25px',culture: 'pt-BR',formatString: "dd/MM/yyyy" });
+                $("#jaRecebidoAteDataP0").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $("#saldoAreceberP0").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $("#jaRecebidoAteDTreajus").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $("#saldoAreceberReajustado").jqxNumberInput({width: '200px', height: '25px', inputMode: 'simple' });
+                $('#obs').jqxTextArea({height: 90, width: 200, minLength: 1, maxLength: 100});
+                $("#inclusoAPS").jqxComboBox({selectedIndex: 0, width: 100, height: '25px'});
+                $("#nuAdidito_parteDaVerba").jqxNumberInput({ width: '200px', height: '25px', inputMode: 'simple',decimalDigits: 0});
+
+                
+                resetForm("#form1");
+                
+                $("#content").show();
+                
+                function carregarMenuTopo(){
+                	
+        			ajxRequestStd({returnType:"html", async:false, timeout:10000, method:"GET", url:'../ws/restrito/view/menuTopoInicio'}, 
+       	    			function(response){
+       					
+       	    				$('#jqxMenu').html(response);
+       	    				
+       	    				$("#jqxMenu").jqxMenu({ width: '100%', height: '30px',theme: 'shinyblack' });
+        	    		}
+       	    		);	                	
+                }
+                
+                
+				function listarCC(){
+					
+					ajxRequestStd({returnType:"json", async:false, timeout:10000, method:"GET", url:"../ws/restrito/pleito/listarCC"}, 
+						function(response){
+							var html = "";
+							for(var i = 0; i < response.length; i++){
+								html+='<option value="'+response[i]+'">'+response[i]+'</option>';
+							}
+							$("#_cc").html(html); 
+							
+						}
+					);
+				}
+
+				function listarTipo(){
+					ajxRequestStd({returnType:"json", async:false, timeout:10000, method:"GET", url:"../ws/restrito/pleito/listarTipos"}, 
+						function(response){
+							var html = "";
+							for(var i = 0; i < response.length; i++){
+								html+='<option value="'+response[i].id+'">'+response[i].descricao+'</option>';
+							}
+							$("#_tipo").html(html);
+						}
+					);
+				}
+
+				function listarStatus(){
+					ajxRequestStd({returnType:"json", async:false, timeout:10000, method:"GET", url:"../ws/restrito/pleito/listarStatus"}, 
+						function(response){
+							var html = "";
+							for(var i = 0; i < response.length; i++){
+								html+='<option value="'+response[i].id+'">'+response[i].descricao+'</option>';
+							}
+							$("#_status").html(html);
+						}
+					);
+				}
+
+				function listarCondicao(){
+					ajxRequestStd({returnType:"json", async:false, timeout:10000, method:"GET",url:"../ws/restrito/pleito/listarCondicoes"}, 
+						function(response){
+							var html = "";
+							for(var i = 0; i < response.length; i++){
+								html+='<option value="'+response[i].id+'">'+response[i].descricao+'</option>';
+							}
+							$("#_condicao").html(html);
+						}
+					);
+				}
+                
+                
+                var source =
+                {
+                    datatype: "json",
+                    url:"../ws/restrito/pleito/listarPleitos",
+                    
+                    datafields: [
+                        
+                        { name: 'id', type:'number'},         
+                        { name: '_cc', type:'string'},
+                        
+                        { name: '_cc_desc', type:'string'},
+                        { name: '_cc_participa', type:'string'},
+                        
+                        { name: 'diretor', type:'string'},
+                        
+                        { name: '_tipo', type:'string'},
+                        { name: '_status', type:'string'},
+                        { name: '_condicao', type:'string'},
+                        { name: 'numDocumento', type:'string'},
+                        { name: 'descricao', type:'string'},
+                        { name: 'dtEntrega', type:'date'},
+                        { name: 'colocadoEmP0', type:'number' },
+                        { name: 'reajustadoAteAData', type:'number'},
+                        { name: 'esperadoEmP0_A', type:'number'},
+                        { name: 'esperadoEmP0_B', type:'number'},
+                        { name: 'custoAgregadoNoMinimoEsperadoP0', type:'number'},
+                        { name: 'livreDeCustosNoMinimoEsperadoP0', type:'number'},
+                        { name: 'minimoEsperadoReajustado', type: 'number'},
+                        { name: 'custoAgregadoNoMinimoEsperadoReajustado', type:'number'},
+                        { name: 'livreDeCustosNoMinimoEsperadoReajustado', type:'number'},
+                        { name: 'dtPrevFinalizaAprovacaoCancelada', type: 'date'},
+                        { name: 'jaRecebidoAteDataP0', type:'number'},
+                        { name: 'saldoAreceberP0', type:'price'},
+                        { name: 'jaRecebidoAteDTreajus', type:'number'},
+                        { name: 'saldoAreceberReajustado', type:'number'},
+                        { name: 'dtPrevRecebimento', type:'date'},
+                        { name: 'inclusoAPS', type:'string'},
+                        { name: 'obs', type:'string'},
+                        { name: 'nuAdidito_parteDaVerba', type:'number'}
+                    ]
+                };
+ 
+	                
+	            var cellsrenderer = function (row, column, value, defaultHtml) {
+	                
+	            }                
+            
+                var dataAdapter = new $.jqx.dataAdapter(source,{
+                	downloadComplete: function (data, status, xhr) { },
+                	loadComplete: function (data) { },
+                	loadError: function (xhr, status, error) { 
+                		alert(JSON.parse(xhr.responseText).serverMessageUser); 
+                	}
+                });
+
+              
+                var cellclass = function(){};
+                
+                $("#jqxgrid").jqxGrid(
+                {
+                	localization:localizationobj,
+                	width: '100%',
+                    height: '90%',
+                    source: dataAdapter,
+                    columnsresize: true,
+                    sortable: true,
+                    filterable: true,
+                    pageable: true,
+                    pagermode: 'simple',
+                    pagesize: 80,
+                    theme: 'web',
+                    autoshowfiltericon: true,
+                    //showfilterrow: true,
+                    
+                    columns: [
+                         
+							{text: 'id_pleito', datafield: 'id', width: 100, hidden: true},      
+	                              
+	                        {text: '', datafield: 'Editar', columntype: 'button', cellsrenderer: function () {
+	                        	
+	                        	return 'Editar';
+	                        },
+	                        buttonclick: function (row) {
+	                        	
+	                        	//resetForm($("#form1")); 
+	                        	
+	                        	// open the popup window when the user clicks a button.
+	                           editrow = row;
+	
+	                           // get the clicked row's data and initialize the input fields.
+	                           var dataRecord = $("#jqxgrid").jqxGrid('getrowdata', editrow);
+	                           
+	                           
+								if(dataRecord._status == "Cancelado"){
+									
+									alert("Este pleito não pode ser alterado pois já foi cancelado.");
+									return (false);
+								}
+	                           
+	                           
+	                           //obtendo o id do pleito para atualizacao ou exclusao 
+	                           $("#id_Pleito").val(dataRecord.id);
+	                           
+	                           
+	                    		//populando campos na popwindow
+	                            $("#_cc").jqxComboBox('val',dataRecord._cc);
+	                        	$("#_tipo").jqxComboBox('val',dataRecord._tipo);
+	                        	$("#_status").jqxComboBox('val',dataRecord._status);
+	                        	$("#_condicao").jqxComboBox('val',dataRecord._condicao);
+	                        	$("#numDocumento").val(dataRecord.numDocumento);
+	                        	$('#descricao').val(dataRecord.descricao);
+	                        	$("#dataEntrega").jqxDateTimeInput('val',dataRecord.dtEntrega);
+	                        	
+	                        	$("#colocadoEmP0").jqxNumberInput('val',dataRecord.colocadoEmP0);
+	
+	                        	$("#reajustadoAteAdata").val(dataRecord.reajustadoAteAdata);
+	                        	$("#esperadoEmP0_A").val(dataRecord.esperadoEmP0_A);
+	                        	$("#esperadoEmP0_B").val(dataRecord.esperadoEmP0_B);
+	                        	$("#custoAgregadoNoMinimoEsperadoP0").val(dataRecord.custoAgregadoNoMinimoEsperadoP0);
+	                        	$("#livreDeCustosNoMinimoEsperadoP0").val(dataRecord.livreDeCustosNoMinimoEsperadoP0);
+	                        	$("#minimoEsperadoReajustado").val(dataRecord.minimoEsperadoReajustado);
+	                        	$("#custoAgregadoNoMinimoEsperadoReajustado").val(dataRecord.custoAgregadoNoMinimoEsperadoReajustado);
+	                        	$("#livreDeCustosNoMinimoEsperadoReajustado").val(dataRecord.livreDeCustosNoMinimoEsperadoReajustado);
+	                        	$("#dtPrevFinalizaAprovacaoCancelada").jqxDateTimeInput('val',dataRecord.dtPrevFinalizaAprovacaoCancelada);
+	                        	$("#jaRecebidoAteDataP0").val(dataRecord.jaRecebidoAteDataP0);
+	                        	$("#saldoAreceberP0").val(dataRecord.saldoAreceberP0);
+	                        	$("#jaRecebidoAteDTreajus").val(dataRecord.jaRecebidoAteDTreajus);
+	                        	$("#saldoAreceberReajustado").val(dataRecord.saldoAreceberReajustado);
+	                        	$("#dtPrevRecebimento").jqxDateTimeInput('val',dataRecord.dtPrevRecebimento);
+	                        	$('#obs').val(dataRecord.obs);
+	                        	$('#inclusoAPS').jqxComboBox('val',dataRecord.inclusoAPS);
+	                        	$('#nuAdidito_parteDaVerba').val(dataRecord.nuAdidito_parteDaVerba);
+	
+	                           //abrindo popupwindow apos clicado EDITAR
+	                        	$("#cadastro_pleito_window").jqxWindow('open');
+	                   		}
+	                   	}, 
+	                   	
+	                   	
+	                    { text: '', datafield: 'Excluir', columntype: 'button', cellsrenderer: function () {
+							return "Excluir";
+						},
+							buttonclick: function (row) {
+								
+							  // open the popup window when the user clicks a button.
+							   editrow = row;
+	
+							   // get the clicked row's data and initialize the input fields.
+							   var dataRecord = $("#jqxgrid").jqxGrid('getrowdata', editrow);
+							   
+								if(dataRecord._status == "Cancelado" || dataRecord._status == "Aprovado"){
+									
+									alert("Este pleito não pode ser excluído.\n\n Status: "+dataRecord._status);
+									return (false);
+								}
+							   
+							   //obtendo o id do pleito para atualizacao ou exclusao 
+							   //$("#id_Pleito").val(dataRecord.id);
+							   
+								excluir(dataRecord.id);
+							}
+						},                    	
+	                  	    
+	               		//demais colunas da grid
+	                    { text: 'Centro de custo', datafield: '_cc', width: 120,filtertype: 'checkedlist', cellsalign: 'center',cellsrenderer:cellsrenderer},
+	                    
+	                    { text: 'Descrição CC', datafield: '_cc_desc',width: 400,filtertype: 'input',cellsrenderer:cellsrenderer},
+	                    { text: 'Participação (%)', datafield: '_cc_participa',width: 120,filtertype: 'number' ,cellsrenderer:cellsrenderer,cellsalign: 'center'},
+	                    
+	                    { text: 'Diretor', datafield: 'diretor',width: 250,filtertype: 'checkedlist',cellsrenderer:cellsrenderer},
+	                    
+	                    { text: 'Tipo', datafield: '_tipo',width: 120,filtertype:'checkedlist',cellsrenderer:cellsrenderer, cellsalign: 'center'},
+	                    { text: 'Status', datafield: '_status',width: 120,filtertype: 'checkedlist',cellsrenderer:cellsrenderer },
+	                    { text: 'Condição', datafield: '_condicao',width: 120,filtertype: 'checkedlist',cellsrenderer:cellsrenderer,cellsalign: 'center' },                        
+	                    { text: 'N Documento', datafield: 'numDocumento',width: 120,filtertype: 'input',cellsrenderer:cellsrenderer},
+	                    { text: 'Descrição', datafield: 'descricao', width: 250,filtertype: 'input',cellsrenderer:cellsrenderer},
+	                    { text: 'Data Entrega', datafield: 'dtEntrega', width: 210,cellsformat: 'dd/MM/yyyy',filtertype: 'range',cellsalign: 'center',cellsrenderer:cellsrenderer},
+	                    { text: 'Colocado em P0', datafield: 'colocadoEmP0', width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Reajustado até a data', datafield: 'reajustadoAteAData',width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Valor Esperado em P0', datafield: 'esperadoEmP0_A', width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Esperado em P0', datafield: 'esperadoEmP0_B', width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Custo Agregado no Mínimo Esperado P0', datafield: 'custoAgregadoNoMinimoEsperadoP0', width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Livre de Custos no Mínimo Esperado P0', datafield: 'livreDeCustosNoMinimoEsperadoP0', width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Minimo Esperado Reajustado', datafield: 'minimoEsperadoReajustado', width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Custo Agregado no Mínimo Esperado Reajustado', datafield: 'custoAgregadoNoMinimoEsperadoReajustado', width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Livre de Custos no Mínimo Esperado Reajustado', datafield: 'livreDeCustosNoMinimoEsperadoReajustado', width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Data: Prev Finalização Aprovação Cancelada', datafield: 'dtPrevFinalizaAprovacaoCancelada', width: 210,cellsformat: 'dd/MM/yyyy',filtertype: 'range',cellsalign: 'center',cellsrenderer:cellsrenderer},
+	                    { text: 'Já Recebido até a Data P0', datafield: 'jaRecebidoAteDataP0', width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Saldo à Receber P0', datafield: 'saldoAreceberP0', width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Já Recebido até a Data Reajustado', datafield: 'jaRecebidoAteDTreajus', width: 150,cellsrenderer:cellsrenderer,cellclassname: cellclass,cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Saldo à Receber Reajustado', datafield: 'saldoAreceberReajustado', width: 150,cellsrenderer:cellsrenderer, cellclassname: cellclass, cellsformat:'d',filtertype: 'number',cellsalign: 'right'},
+	                    { text: 'Data Prevista para Recebimento', datafield: 'dtPrevRecebimento', width: 210,cellsformat: 'dd/MM/yyyy',filtertype: 'range',cellsalign: 'center',cellsrenderer:cellsrenderer},
+	                    { text: 'Incluso APS', datafield: 'inclusoAPS', width: 120,filtertype: 'list',cellsalign: 'center'},
+	                    { text: 'Observações', datafield: 'obs', width: 120,filtertype: 'input'},
+	                    { text: 'Indicar Nº Aditivo, TEJ ou se faz parte da Verba (Saldo Contratual)', datafield:'nuAdidito_parteDaVerba', width:400,filtertype: 'number',cellsalign: 'center'}
+                    ]    
+                });
+                
+                //EVITAR QUE A LINHA PERCA PERCA A COR AZUL OU VERMELHA CASO RECEBER O FOTO DO PONTEIRO DO MOUSE
+                $('#jqxgrid').jqxGrid({ cellhover: function (cellhtmlElement, x, y) {
+                	$("div[role='row']:contains('Aprovado')").children().hasClass("jwx-grid-cell-hover").css('color','#0000FF');
+                	$("div[role='row']:contains('Cancelado')").children().hasClass("jwx-grid-cell-hover").css('color','#0000FF');
+                }});
+                
+                
+                $('#jqxgrid').on('bindingcomplete',addImageButton);
+                $('#jqxgrid').on('filter',addImageButton);
+                $("#jqxgrid").on("columnresized", addImageButton); 
+                $("#jqxgrid").on("columnreordered",addImageButton); 
+                $("#jqxgrid").on("sort",addImageButton);
+                $("#jqxgrid").on("pagechanged", addImageButton);
+                
+                function addImageButton(){
+                	
+                	$('#jqxgrid').jqxGrid('render');
+                	
+                	$("div[role='row']:contains('Cancelado')").css('color','#FF0000');
+                	
+                	$("div[role='row']:contains('Aprovado')").css('color','#0000FF');
+
+                	
+    	            $(":input[type='button']").each(function(i,obj){
+    	            	
+    	            	if($(obj).context.value == "Editar" || $(obj).context.value == "Excluir"){
+    	            		
+    	            		$(obj).context.type = "image";
+    	            		
+    	            		if($(obj).context.value == "Editar"){
+    	            			
+    	            			$(obj).context.src = "img/edit.png";
+    	            		}
+    	            		else if($(obj).context.value == "Excluir"){
+    	            			
+    	            			$(obj).context.src = "img/delete.png";
+    	            		}
+    	            	}
+    	            });
+                }
+
+                
+                $('#cadastro_pleito_window').jqxWindow({
+                	width: '80%', resizable: true,  isModal: true, autoOpen: false, modalOpacity: 0.01,theme: 'shinyblack',cancelButton: $("#cancelaSalvaPleito"),
+					
+                    initContent: function () {
+
+                    }
+                });
+                
+
+                function resetForm(form){
+                	$(form)[0].reset();
+                	
+                	$("#id_Pleito").val(-1);
+                    $("#_cc").jqxComboBox('clearSelection');
+                    $("#_tipo").jqxComboBox('clearSelection');
+                    $("#_status").jqxComboBox('clearSelection');
+                    $("#_condicao").jqxComboBox('clearSelection');
+                }
+                
+                $("#cadastro_pleito_window").on('open', function (){
+
+                });
+
+
+                $("#cadastro_pleito_window").on('close', function (event){ 
+                	resetForm($("#form1")); 
+                	
+                });
+                
+
+            	$("#salvaPleito").jqxButton({width:100,height:40});
+           	
+
+            	$("#cancelaSalvaPleito").jqxButton({width:120,height:40});
+
+
+            	$("#salvaPleito").on('click', function () {
+            		
+					ajxRequestStd({returnType:"json", async:true, timeout:10000, method:"POST",url:"../ws/restrito/pleito/salvar", param : getAllVals()}, 
+
+						function(response){
+							
+							//$("#notifMsg").html(response.serverMessageUser);
+							//$("#notificationAlert").jqxNotification("open");
+							
+							resetForm($("#form1"));
+
+							$('#jqxgrid').jqxGrid('updatebounddata');
+							
+							 $('#cadastro_pleito_window').jqxWindow('close');
+							
+							alert(response.serverMessageUser);
+						}
+					);
+                });
+
+
+				function getAllVals(){
+
+
+					var params = {
+						
+						id : $("#id_Pleito").val(),	
+						cc : $("#_cc").val(),
+						tipo : $("#_tipo").val(),
+						status : $("#_status").val(),
+						condicao : $("#_condicao").val(),
+						numDocumento : $("#numDocumento").val(),
+						descricao : $("#descricao").val(),
+						dataEntrega : $("#dataEntrega").val(), 
+						colocadoEmP0 : $("#colocadoEmP0").val(),
+						reajustadoAteAdata : $("#reajustadoAteAdata").val(),
+						esperadoEmP0_A : $("#esperadoEmP0_A").val(),
+						esperadoEmP0_B : $("#esperadoEmP0_B").val(),
+						custoAgregadoNoMinimoEsperadoP0 : $("#custoAgregadoNoMinimoEsperadoP0").val(),
+						livreDeCustosNoMinimoEsperadoP0 : $("#livreDeCustosNoMinimoEsperadoP0").val(),
+						minimoEsperadoReajustado : $("#minimoEsperadoReajustado").val(),
+						custoAgregadoNoMinimoEsperadoReajustado : $("#custoAgregadoNoMinimoEsperadoReajustado").val(),
+						livreDeCustosNoMinimoEsperadoReajustado : $("#livreDeCustosNoMinimoEsperadoReajustado").val(),
+						dtPrevFinalizaAprovacaoCancelada : $("#dtPrevFinalizaAprovacaoCancelada").val(),
+						jaRecebidoAteDataP0 : $("#jaRecebidoAteDataP0").val(),
+						saldoAreceberP0 : $("#saldoAreceberP0").val(),
+						jaRecebidoAteDTreajus : $("#jaRecebidoAteDTreajus").val(),
+						saldoAreceberReajustado : $("#saldoAreceberReajustado").val(),
+						dtPrevRecebimento : $("#dtPrevRecebimento").val(),
+						obs : $('#obs').val(),
+						inclusoAPS : $("#inclusoAPS").val(),
+						nuAdidito_parteDaVerba : $("#nuAdidito_parteDaVerba").val()
+					}
+					
+					return jQuery.param(params);
+				}
+           	
+				
+				$("#notificationAlert").jqxNotification(
+						{ width: 300, 
+							position: 'top-left', 
+							autoOpen: false, 
+							closeOnClick: true, 
+							autoClose: true, 
+							template: "success",
+							autoCloseDelay: 50000,
+							animationOpenDelay: "fast",
+							animationCloseDelay: 1000,
+							blink:true
+							//appendContainer: "#cadastro_pleito_window"
+				});
+				
+				
+	            function excluir(id){
+	            	
+	            	var path = url="../ws/restrito/pleito/excluir/"+id
+	            	
+	            	if(confirm("Deseja realmente excluir o registro atual?")){
+	            		ajxRequestStd({returnType:"json", async:true, timeout:10000, method:"DELETE", url:path}, 
+	            			function(response){
+	            				//listarCadastrados();
+	            				alert(response.serverMessageUser);
+	            				$('#jqxgrid').jqxGrid('updatebounddata');
+	            			}
+	            		);
+	            	}
+	            }	
+            });
+        </script>	    
+	    
+	</head>
+	<body>
+	<div style="width: 100%">
+		<img src="../img/constran_logo.png">
+	
+	</div>
+    <div id="content" style="display:none;">
+        <div id="jqxMenu">
+			<!--<ul>
+                 <li>Pleitos
+                     <ul style='width: 220px;'>
+                         <li><a href="#" id="abreCadastroPleito" onclick="$('#cadastro_pleito_window').jqxWindow('open');">Cadastro</a></li>
+                         <li>Exportar
+	                         <ul style='width: 220px;'>
+		                         <li><a href="#" id="exportPdfLink">PDF</a></li>
+		                         <li><a href="#" id="exportExcelLink">Excel</a></li>
+		                         <li><a href="#" id="exportCSVLink">CSV</a></li>
+		                         <li><a href="#" id="exportJsonLink">JSON</a></li>
+		                         <li><a href="#" id="exportXMLLink">XML</a></li>
+		                         <li><a href="#" id="exportHTMLLink">HTML</a></li>                           
+	                     	</ul>
+                         </li>
+                     </ul>
+                 </li>            	
+                <li><a href="#">Centro de Custos</a></li>
+                <li><a href="#">Sair</a></li>
+            </ul> -->
+        </div>
+     <br/>
+
+     
+     
+    <div id='jqxWidget'>
+        <div id="jqxgrid"></div>
+    </div>
+     
+	
+       <div id="cadastro_pleito_window">
+       		<div>Cadastrar Pleito</div>
+            <div>
+     
+ 			<form id="form1">
+				<br/>
+				
+				<input type="hidden" id="id_Pleito" value="-1">
+				
+				<label>Centro de custo</label>
+				<select name="" id="_cc">
+				</select>
+				<br/>
+			
+				<label>Tipo</label>
+				<select name="" id="_tipo">
+				</select>
+				<br/>
+			
+				<label>Status</label>
+				<select name="" id="_status">
+					<option value=""></option>
+				</select>
+				<br/>
+				
+				<label>Condição</label>
+				<select name="" id="_condicao">
+					<option value=""></option>
+				</select>
+				<br/>
+
+				<label>N Documento</label>
+				<input type="text" id="numDocumento">
+				<br/><br/>
+
+				<label>Descrição</label>
+				<textarea id="descricao"></textarea>
+				<br/>
+
+				<label>Data Entrega</label>
+				<div id="dataEntrega"></div>     
+				<br/><br/>
+
+				<label>Colocado P0</label>
+ 					<div id="colocadoEmP0"></div>
+ 					<br/><br/>
+
+				<label>Reajustado até a Data</label>
+ 					<div id="reajustadoAteAdata"></div>
+					<br/><br/>
+
+				<label>Valor Esperado P0</label>
+ 					<div id="esperadoEmP0_A"></div>
+ 					<br/><br/>
+
+				<label>Esperado P0</label>
+ 					<div id="esperadoEmP0_B"></div>
+ 					<br/><br/>
+ 					
+				<label>Custo Agregado no Mínimo Esperado</label>
+ 					<div id="custoAgregadoNoMinimoEsperadoP0"></div>  	
+ 					<br/><br/>
+ 					
+ 					<label>Livre de Custos no Mínimo Esperado P0</label>
+ 					<div id="livreDeCustosNoMinimoEsperadoP0"></div>
+ 					<br/><br/> 
+ 					
+ 					<label>Minimo Esperado Reajustado</label>
+					<div id="minimoEsperadoReajustado"></div>
+ 					<br/><br/>  
+ 					
+ 					<label>Custo Agregado no Mínimo Esperado Reajustado</label>
+ 					<div id="custoAgregadoNoMinimoEsperadoReajustado"></div>
+ 					<br/><br/> 
+ 					
+ 					<label>Livre de Custos no Mínimo Esperado Reajustado</label>
+ 					<div id="livreDeCustosNoMinimoEsperadoReajustado"></div>
+ 					<br/><br/>
+  					
+ 					<label>Data: Prev Finalização Aprovação Cancelada</label>
+ 					<div id="dtPrevFinalizaAprovacaoCancelada"></div>
+ 					<br/><br/> 
+ 					
+ 					<label>Já Recebido até a Data P0</label>
+ 					<div id="jaRecebidoAteDataP0"></div>
+ 					<br/><br/>   
+ 					
+ 					<label>Saldo à Receber P0</label>
+ 					<div id="saldoAreceberP0"></div>
+ 					<br/><br/>
+ 					
+ 					
+ 					<label>Já Recebido até a Data Reajustado</label>
+ 					<div id="jaRecebidoAteDTreajus"></div>
+ 					<br/><br/>
+ 					
+ 					
+ 					<label>Saldo à Receber Reajustado</label>
+ 					<div id="saldoAreceberReajustado"></div>
+ 					<br/><br/>
+ 					
+ 					
+ 					<label>Data Prevista para Recebimento</label>
+ 					<div id="dtPrevRecebimento"></div>
+ 					<br/><br/> 
+ 					
+					<label>Incluso APS</label>
+					<select name="inclusoAPS" id="inclusoAPS">
+						<option value="N">N</option>
+						<option value="S">S</option>
+					</select>
+					<br/><br/> 					
+ 					
+ 					<label>Observações</label>
+					<textarea id="obs"></textarea>
+					<br/><br/>
+					
+					<label>Indicar Nº Aditivo, TEJ ou se faz parte da Verba (Saldo Contratual)</label>
+ 					<div id="nuAdidito_parteDaVerba"></div>
+ 					<br/><br/>
+
+                  <input style="margin-right: 5px;" type="button" id="salvaPleito" value="Salvar"/>
+                  <input id="cancelaSalvaPleito" type="button" value="Cancelar" />
+			</form> 
+			</div>
+		</div>
+		
+		<div id="notificationAlert">
+        	<div id="notifMsg"></div>
+    	</div>
+
+	    </div>
+	    <script>
+			
+			function logoff(){
+				if(confirm("Você será desconectado...")){  
+					ajxRequestStd({returnType:"json", async:false, timeout:10000, method:"GET", url:"../ws/restrito/login/logoff"}, 
+						function(response){
+							window.location.href = response.serverMessageUser
+						}
+					);
+				}
+			}			
+			
+	    </script>
+	    <div id="erroMsg"></div>
+		<div class="footer">
+		    <p>
+		        © Todos os direitos reservados à <a href="http://www.constran.com.br">Constran</a>. Departamento de Tecnologia da Informação <a href='mailto:ti.matriz@constran.com.br'>ti.matriz@constran.com.br</a>. Versão 1.0.0
+		    </p>
+		</div>	    
+    	
+	</body>
+</html>

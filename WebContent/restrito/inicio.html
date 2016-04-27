@@ -367,9 +367,11 @@
 	                           
 	                    		//populando campos na popwindow
 	                            $("#_cc").jqxComboBox('val',dataRecord._cc);
-	                        	$("#_tipo").jqxComboBox('val',dataRecord._tipo);
-	                        	$("#_status").jqxComboBox('val',dataRecord._status);
-	                        	$("#_condicao").jqxComboBox('val',dataRecord._condicao);
+	                        	
+	                           selecionaComboItem("_tipo",dataRecord._tipo);
+	                           selecionaComboItem("_status",dataRecord._status);
+	                           selecionaComboItem("_condicao",dataRecord._condicao);
+	                        	
 	                        	$("#numDocumento").val(dataRecord.numDocumento);
 	                        	$('#descricao').val(dataRecord.descricao);
 	                        	$("#dataEntrega").jqxDateTimeInput('val',dataRecord.dtEntrega);
@@ -480,7 +482,6 @@
                 	$("div[role='row']:contains('Cancelado')").css('color','#FF0000');
                 	
                 	$("div[role='row']:contains('Aprovado')").css('color','#0000FF');
-
                 	
     	            $(":input[type='button']").each(function(i,obj){
     	            	
@@ -500,6 +501,25 @@
     	            });
                 }
 
+                
+                $(window).resize(function() {
+                	addImageButton();
+                });
+                
+                var resizeTimer = 100;
+
+                $(window).on('resize', function(e) {
+
+                  clearTimeout(resizeTimer);
+                  resizeTimer = setTimeout(function() {
+
+                    addImageButton();
+                            
+                  }, 250);
+
+                });
+                
+                
                 
                 $('#cadastro_pleito_window').jqxWindow({
                 	width: '80%', resizable: true,  isModal: true, autoOpen: false, modalOpacity: 0.01,theme: 'shinyblack',cancelButton: $("#cancelaSalvaPleito"),
@@ -623,7 +643,26 @@
 	            			}
 	            		);
 	            	}
-	            }	
+	            }
+	            
+	            
+	            function selecionaComboItem(combo,valor){
+	            	
+	            	
+                    $('#'+combo+'_jqxComboBox').each(function(i,obj){
+                 	   
+                 	   for(var e = 0; e < $(obj).children().length; e++){
+                 		   
+                 		   if(valor == $($(obj).children()[e]).html()){
+                 			   $('#'+combo).jqxComboBox('selectItem',$($(obj).children()[e]).val());
+                 			   break;
+                 		   }
+                 	   }
+                    });
+	            	
+	            }
+	            
+	            
             });
         </script>	    
 	    

@@ -314,6 +314,8 @@
                 $("#jqxgrid").on("pagechanged", addImageButton);
                 
                 
+     
+                
                 function addImageButton(){
                 	
                 	
@@ -334,6 +336,27 @@
     	            	}
     	            });
                 }
+                
+                $(window).resize(function() {
+                	addImageButton();
+                });
+                
+                var resizeTimer = 100;
+
+                $(window).on('resize', function(e) {
+
+                  clearTimeout(resizeTimer);
+                  resizeTimer = setTimeout(function() {
+
+                    addImageButton();
+                            
+                  }, 250);
+
+                });
+                
+                
+                
+                
                 
                 
             	$("#salvaCC").on('click', function () {
